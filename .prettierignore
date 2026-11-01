@@ -1,0 +1,8 @@
+node_modules
+dist
+playwright-report
+test-results
+package-lock.json
+src/assets
+public/icons.svg
+public/favicon.svg

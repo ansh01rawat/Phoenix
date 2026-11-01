@@ -1,0 +1,78 @@
+[
+  {
+    "Path": "C:\\phoenix\\src\\services\\contracts.ts",
+    "Hash": "D6FFA7490F549A78616AF93B8BC779DDC9889A07E5337BC7F7B587CC1048B0F6"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\services\\mock\\fixtures.ts",
+    "Hash": "29736CEA3C0FA66BD3DD7C6742916A49E1FF43B9FD8FDA7E6832FB40FF1E744A"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\services\\mock\\importService.ts",
+    "Hash": "C49FBC2529CFD0E862A10912613F7CECBCC262939E3CCDA53839AA0E269E6C81"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\services\\mock\\previewService.ts",
+    "Hash": "23386ACF1A7AD92578D2B2C73CB80E39213C52113825D832AD082AAB3C3EDAC2"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\services\\mock\\repairService.ts",
+    "Hash": "722B4C3E72850AB3E845F03AD78D06D6E5053C7D389487EB2EB633BDC6D4551D"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\services\\mock\\verification.ts",
+    "Hash": "45B3D740964F55ADDFBFA6CED6C6A6B785C33D0DCD24E8CEBE96AE17FC39AB3A"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\services\\mock\\workspace.ts",
+    "Hash": "F85C0C95B0006AAFD35AE86EF35EA2832C3287884E72BBBC458C78D7C8BC4413"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\store\\browser-storage.ts",
+    "Hash": "3244D288B33D148D4E0F77443CD2351B310C07FFD2EB2FDAC27F4652AEF7EC57"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\store\\project-store.ts",
+    "Hash": "6CF511F5D9A7349E6E24E4805B16530B993EE39530D14459D995AAE4F1D6321C"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\store\\saved-state.ts",
+    "Hash": "23CEAFDFC1F31B2AE0876B7036431E24847264909F279A74413C0985A31CF10F"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\store\\ui-store.ts",
+    "Hash": "37253321B05C2185B0C67B0E6C12046E4F8D51F8C0A15E218CDBF72CC9F581C7"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\types\\repair.ts",
+    "Hash": "F51D37AC7A7140DE9578F3BCEADC59CD84D45CAC60954C9433676CB7F98BF42F"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\App.tsx",
+    "Hash": "DA821041F2241402D801E3DCD3E8EC3D765D118A8FA971E747F4E235B4D292C1"
+  },
+  {
+    "Path": "C:\\phoenix\\package.json",
+    "Hash": "8417BABBBA2A9295FC3AB372C9B83FA5B0B921C880B0543B7F258BEC414D6B8C"
+  },
+  {
+    "Path": "C:\\phoenix\\package-lock.json",
+    "Hash": "CB47C8F50F9D779EFA1EBDDCF3B79F58DA06922FF7E694D161AEA027493103BB"
+  },
+  {
+    "Path": "C:\\phoenix\\vite.config.ts",
+    "Hash": "FD44C798E97DD4648B0A726C0FBC948C97E4D9F54700EC6B9BB734C6F74B36C9"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\features\\approval\\ReviewPage.tsx",
+    "Hash": "E612E2547A7B0B2613CC0C788EB715466A9AB22894D3FC7789A40431498FD103"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\features\\import\\ImportPage.tsx",
+    "Hash": "26F746437E49DBC21978202A6C814E2F8D877D82D1214746B1BCBDB4471D7A56"
+  },
+  {
+    "Path": "C:\\phoenix\\src\\layouts\\RepairWorkspaceLayout.tsx",
+    "Hash": "B3D358689F6D3858B83A243D94A3A6E9E133C48A8B96C40B61186E41506F130D"
+  }
+]

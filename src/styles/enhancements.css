@@ -1,0 +1,1145 @@
+/* Presentation only. Service contracts, identity and workflow state remain unchanged. */
+:root {
+  --text-body: 15px;
+  --text-control: 14px;
+  --text-meta: 12px;
+  --text-section: 22px;
+  --sidebar-width: 260px;
+  --header-height: 68px;
+  --glass-border: #ffffff18;
+}
+body {
+  font-size: var(--text-body);
+  line-height: 1.65;
+}
+.page-container {
+  max-width: 1320px;
+  padding-top: 42px;
+}
+.page-heading h1 {
+  font-size: clamp(32px, 2.8vw, 40px);
+  font-weight: 580;
+  line-height: 1.18;
+  letter-spacing: -1.3px;
+}
+.page-description,
+.hero-copy > p,
+.dashboard-hero .hero-copy > p,
+.feature-heading p,
+.workspace-heading p {
+  font-size: var(--text-body);
+  line-height: 1.75;
+}
+.page-heading > div,
+.feature-heading > div {
+  min-width: 0;
+}
+.page-heading-actions {
+  flex-shrink: 0;
+}
+.workspace-heading h1 {
+  font-size: 32px;
+  font-weight: 570;
+}
+.feature-heading h2 {
+  font-size: 29px;
+  line-height: 1.3;
+  font-weight: 560;
+}
+.feature-heading {
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.section-heading h2,
+.settings-section-heading h2 {
+  font-size: var(--text-section);
+  font-weight: 550;
+}
+.subsection-title h3 {
+  font-size: 17px;
+  font-weight: 550;
+}
+.feature-page p,
+.settings-section p,
+.settings-about p {
+  font-size: var(--text-body);
+  line-height: 1.75;
+}
+:is(.page-container, .feature-page, .session-panel) .eyebrow,
+.section-heading .eyebrow,
+.feature-heading .eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.15px;
+}
+.text-link,
+.back-link,
+.list-toolbar,
+.breadcrumbs {
+  font-size: 13px;
+}
+.badge,
+.project-last-status .badge,
+.workspace-heading-actions .badge,
+.title-with-badge .badge,
+.header-actions .badge {
+  font-size: 11px;
+  padding: 5px 8px;
+  min-height: 27px;
+}
+.workspace-session-id,
+.session-id,
+.workspace-bottomline,
+.app-statusbar {
+  font-size: 11px;
+}
+
+/* Small-area glass: reflective depth without large animated blur surfaces. */
+.button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 10px 17px;
+  font-size: var(--text-control);
+  font-weight: 560;
+  transition:
+    transform 190ms var(--ease),
+    background-color 190ms var(--ease),
+    border-color 190ms var(--ease),
+    box-shadow 190ms var(--ease),
+    color 190ms var(--ease);
+}
+:is(.page-container, .workspace-page, .dialog-content, .sidebar-content) .button {
+  font-size: var(--text-control);
+  min-height: 44px;
+}
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(180deg, #ffffff0d, transparent 54%);
+  box-shadow: inset 0 1px 0 #ffffff18;
+  transition: opacity 190ms var(--ease);
+  opacity: 0.7;
+}
+.button-secondary {
+  background: linear-gradient(175deg, #ffffff06, #ffffff00 65%), #24252de8;
+  border-color: #ffffff20;
+  color: #e5e5ef;
+  box-shadow:
+    0 3px 8px #0003,
+    inset 0 -1px 0 #0003;
+}
+.button-secondary:hover {
+  background-color: #30313c;
+  border-color: #ffffff34;
+}
+.button-primary,
+.new-repair-button {
+  color: #f6f3ff;
+  border-color: #a99dff63;
+  background: linear-gradient(165deg, #a193ff25, #63539712 70%), #39314fef;
+  box-shadow:
+    inset 0 1px 0 #e2d9ff2e,
+    inset 0 -1px 0 #1a132b6b,
+    0 4px 14px #100c2066;
+}
+.button-primary:hover,
+.new-repair-button:hover {
+  background-color: #493d68;
+  border-color: #b8aaff99;
+  box-shadow:
+    inset 0 1px 0 #eee8ff40,
+    0 7px 22px #6d55ba26,
+    0 3px 8px #0004;
+}
+.button-primary::after,
+.new-repair-button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  top: -50%;
+  bottom: -50%;
+  left: -60%;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, #eee7ff14, transparent);
+  transform: skewX(-22deg);
+  transition: left 450ms var(--ease);
+}
+.button-danger {
+  background: linear-gradient(170deg, #f49aab0e, transparent), #38232def;
+  color: #ffc1ca;
+  border-color: #a25f705e;
+}
+.button-danger:hover {
+  background-color: #4b2c39;
+  border-color: #d47c8d88;
+}
+.button-ghost::before {
+  opacity: 0;
+}
+.button-ghost:hover::before {
+  opacity: 0.5;
+}
+:is(.page-container, .workspace-page, .dialog-content) .button-sm {
+  min-height: 40px;
+  padding: 8px 13px;
+  font-size: 13px;
+}
+:is(.app-header, .sidebar-content, .workspace-page, .dialog-content) .button-icon {
+  width: 40px;
+  min-height: 40px;
+  padding: 0;
+}
+.button svg {
+  transition: transform 190ms var(--ease);
+}
+.button:disabled,
+.button[aria-disabled='true'] {
+  transform: none;
+  box-shadow: none;
+}
+.button:focus-visible {
+  outline: 2px solid #c4baff;
+  outline-offset: 3px;
+}
+@supports (backdrop-filter: blur(12px)) {
+  .button-primary,
+  .button-secondary,
+  .new-repair-button {
+    backdrop-filter: blur(12px) saturate(1.1);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .button:not(:disabled):not([aria-disabled='true']):hover {
+    transform: translateY(-2px);
+  }
+  .button-primary:hover::after,
+  .new-repair-button:hover::after {
+    left: 125%;
+  }
+  .button:hover .lucide-arrow-right,
+  .button:hover .lucide-arrow-up-right {
+    transform: translate(3px, -1px);
+  }
+  .button:hover .lucide-plus {
+    transform: rotate(12deg);
+  }
+}
+.button:not(:disabled):not([aria-disabled='true']):active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Existing navigation, with room for the larger type. */
+.sidebar-brand-row {
+  min-height: 82px;
+}
+.brand {
+  font-size: 24px;
+}
+.workspace-selector {
+  min-height: 64px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.workspace-selector .sidebar-copy > span,
+.account-button .sidebar-copy > span {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.workspace-selector small,
+.account-button small {
+  font-size: 12px;
+}
+.workspace-avatar,
+.account-avatar {
+  width: 33px;
+  height: 33px;
+  font-size: 14px;
+}
+.sidebar-section-label {
+  font-size: 11px;
+}
+.sidebar-search {
+  font-size: 13px;
+  min-height: 42px;
+}
+.nav-item {
+  font-size: 14px;
+  min-height: 43px;
+  border-radius: 8px;
+  transition:
+    background-color 180ms,
+    color 180ms;
+}
+.nav-item[aria-current='page'] {
+  box-shadow: inset 2px 0 0 #a89aff;
+  background: #8b83f616;
+}
+.nav-demo {
+  font-size: 9px;
+}
+.new-repair-button {
+  margin-bottom: 22px;
+  border-radius: 9px;
+}
+.recent-session-link {
+  min-height: 33px;
+  font-size: 11px;
+}
+.recent-session-link small {
+  font-size: 10px;
+}
+.sidebar-bottom {
+  padding-top: 24px;
+}
+.sidebar-note h3 {
+  font-size: 13px;
+}
+.sidebar-note p,
+.sidebar-note button {
+  font-size: 12px;
+}
+.account-button {
+  min-height: 76px;
+}
+.sidebar-content[data-collapsed='true'] :is(.new-repair-button, .nav-item, .sidebar-search) {
+  width: 40px;
+  min-height: 40px;
+  padding: 0;
+}
+.sidebar-content[data-collapsed='true'] .account-avatar {
+  width: 32px;
+  height: 32px;
+}
+.app-header {
+  background: #111214ef;
+}
+.header-actions {
+  gap: 10px;
+}
+.dropdown-content {
+  padding: 7px;
+  border-radius: 12px;
+  max-width: calc(100vw - 24px);
+}
+.dropdown-item {
+  min-height: 42px;
+  font-size: 14px;
+  border-radius: 7px;
+}
+.dropdown-label,
+.tooltip {
+  font-size: 12px;
+}
+.workflow-navigation {
+  min-height: 65px;
+  gap: 5px;
+}
+.workflow-tab {
+  font-size: 14px;
+  height: 42px;
+  padding-inline: 14px;
+  border-radius: 8px;
+  transition:
+    background-color 180ms,
+    color 180ms,
+    border-color 180ms;
+}
+.workflow-tab-active {
+  background: #8b83f61a;
+  border-color: #a69af642;
+  box-shadow: inset 0 1px 0 #ffffff08;
+}
+.workflow-number {
+  font-size: 10px;
+}
+.workspace-demo-notice {
+  font-size: 12px;
+  line-height: 1.8;
+  padding-block: 14px;
+}
+.session-panel h2 {
+  font-size: 14px;
+}
+.session-panel .eyebrow {
+  font-size: 10px;
+}
+.session-metadata,
+.session-metadata small,
+.activity-timeline li,
+.activity-timeline small,
+.session-protection {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.activity-timeline li > span {
+  transition:
+    background-color 220ms,
+    border-color 220ms;
+}
+.activity-timeline li > span > svg {
+  transition:
+    opacity 220ms,
+    transform 220ms;
+}
+.activity-complete > span > svg {
+  opacity: 1;
+  transform: scale(1);
+}
+.compact-context summary,
+.compact-context-body {
+  font-size: 12px;
+}
+
+/* Shared content hierarchy. */
+.overview-stat {
+  padding: 24px;
+}
+.overview-stat > span {
+  font-size: 14px;
+}
+.overview-stat strong,
+.test-summary strong,
+.review-metrics strong {
+  font-size: 34px;
+  font-weight: 520;
+}
+.overview-stat p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.dashboard-stats,
+.project-card,
+.repair-table,
+.workspace-surface {
+  border-radius: 12px;
+}
+.dashboard-hero {
+  min-height: 345px;
+  border-radius: 14px;
+}
+.dashboard-hero .hero-copy {
+  padding: 32px;
+}
+.dashboard-hero .hero-copy h2 {
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 570;
+  letter-spacing: -1.4px;
+}
+.hero-eyebrow {
+  font-size: 10px;
+}
+.dashboard-hero .workflow-blueprint {
+  max-width: 390px;
+  height: 290px;
+  margin-right: 22px;
+}
+.blueprint-caption {
+  font-size: 9px;
+}
+.blueprint-node {
+  border-radius: 10px;
+}
+.blueprint-node > div > .mono,
+.sandbox-node > div > .mono,
+.decision-node > div > .mono {
+  font-size: 9px;
+}
+.blueprint-node strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.source-node {
+  width: 184px;
+  height: 64px;
+}
+.sandbox-node {
+  width: 222px;
+  height: 84px;
+  top: 38%;
+}
+.decision-node {
+  width: 206px;
+  height: 64px;
+  top: 72%;
+}
+.sandbox-node small {
+  font-size: 10px;
+}
+.blueprint-source-caption {
+  font-size: 8px;
+}
+.project-card {
+  padding: 24px;
+  box-shadow: inset 0 1px 0 #ffffff04;
+  transition:
+    transform 200ms var(--ease),
+    box-shadow 200ms,
+    background-color 200ms,
+    border-color 200ms;
+}
+.project-card h3 {
+  font-size: 18px;
+  font-weight: 550;
+}
+.project-card > p {
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 48px;
+}
+.project-card-bottom,
+.project-last-status {
+  font-size: 12px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.project-symbol {
+  width: 44px;
+  height: 44px;
+}
+.repair-row {
+  padding: 22px;
+  transition: background-color 180ms;
+}
+.repair-row h3 {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.repair-row p {
+  font-size: 13px;
+}
+.repair-reference,
+.repair-row-date {
+  font-size: 12px;
+}
+.dashboard-trust {
+  font-size: 13px;
+}
+.dashboard-trust p {
+  font-size: 13px;
+}
+.search-field {
+  min-height: 46px;
+  width: 340px;
+  border-radius: 9px;
+  transition:
+    border-color 180ms,
+    box-shadow 180ms;
+}
+.search-field input {
+  font-size: 15px;
+}
+.search-field:focus-within {
+  border-color: #a99cff;
+  box-shadow: 0 0 0 3px #8b83f612;
+}
+.filter-bar button {
+  min-height: 40px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+.filter-bar button > span {
+  font-size: 12px;
+}
+.project-info .eyebrow {
+  font-size: 11px;
+}
+.project-info p {
+  font-size: 14px;
+}
+.setting-row h3 {
+  font-size: 16px;
+  font-weight: 550;
+}
+.setting-row p,
+.settings-saved-note {
+  font-size: 13px;
+}
+.setting-row {
+  padding: 23px;
+}
+.import-card-heading h2,
+.protection-card h2 {
+  font-size: 21px;
+}
+.import-card-heading p,
+.import-demo-note p,
+.import-actions > span,
+.sample-card p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.file-dropzone h3 {
+  font-size: 23px;
+  line-height: 1.4;
+}
+.file-dropzone p {
+  font-size: 15px;
+}
+.dropzone-format,
+.protection-rule {
+  font-size: 12px;
+}
+.sample-card h3 {
+  font-size: 18px;
+}
+.protection-card p {
+  font-size: 14px;
+  line-height: 1.85;
+}
+.progress-caption {
+  font-size: 13px;
+}
+.diagnosis-summary h3,
+.issue-card h4,
+.issue-details h3,
+.repair-plan h4 {
+  font-size: 17px;
+  font-weight: 550;
+}
+.issue-card p,
+.issue-details p,
+.repair-plan li {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.issue-file,
+.issue-details dt,
+.issue-details dd,
+.repair-plan li > span,
+.explanation-label {
+  font-size: 12px;
+}
+.issue-details h4 {
+  font-size: 14px;
+}
+.issue-details pre {
+  font-size: 12px;
+}
+.changes-trust,
+.folder-label,
+.diff-version-bar,
+.diff-counts {
+  font-size: 12px;
+}
+.file-explorer .subsection-title h3 {
+  font-size: 13px;
+}
+.file-explorer button {
+  font-size: 12px;
+  min-height: 54px;
+}
+.file-explorer small {
+  font-size: 10px;
+}
+.file-modified,
+.diff-file-header,
+.explanation-context {
+  font-size: 12px;
+}
+.diff-workbench {
+  grid-template-columns: 190px minmax(0, 1fr);
+  border-radius: 10px;
+}
+.readable-diff {
+  font-size: 13px;
+  line-height: 1.85;
+}
+.change-explanation h3,
+.change-explanation h4 {
+  font-size: 16px;
+}
+.change-explanation p {
+  font-size: 14px;
+}
+.segmented-control {
+  border-radius: 9px;
+  background: #1d1b26;
+}
+.segmented-control button,
+.viewport-controls button {
+  min-height: 40px;
+  font-size: 13px;
+  border-radius: 7px;
+  transition:
+    background-color 180ms,
+    color 180ms,
+    box-shadow 180ms;
+}
+.segmented-control button[aria-pressed='true'],
+.viewport-controls button[aria-pressed='true'] {
+  background: linear-gradient(170deg, #ab9bff17, transparent), #39304bef;
+  box-shadow: inset 0 1px 0 #d9caff1f;
+  color: #e4dcff;
+}
+.preview-toolbar-actions .button {
+  width: 40px;
+  min-height: 40px;
+}
+.preview-browser {
+  border-radius: 12px;
+}
+.browser-address > span,
+.preview-footer {
+  font-size: 11px;
+}
+.preview-facts p {
+  font-size: 13px;
+}
+.preview-facts .eyebrow {
+  font-size: 10px;
+}
+.test-demo-banner h3,
+.verification-outcome h3 {
+  font-size: 17px;
+}
+.test-demo-banner p,
+.verification-outcome p {
+  font-size: 14px;
+}
+.test-summary span {
+  font-size: 13px;
+}
+.test-actions label {
+  font-size: 13px;
+}
+.test-actions select {
+  font-size: 14px;
+  min-height: 44px;
+  border-radius: 8px;
+}
+.test-result summary {
+  padding: 20px 17px;
+}
+.test-name {
+  font-size: 15px;
+}
+.test-name small {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.test-result-label,
+.test-duration {
+  font-size: 12px;
+}
+.test-result pre {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.review-intro h2 {
+  font-size: 34px;
+  font-weight: 550;
+  line-height: 1.3;
+}
+.review-intro > p:not(.eyebrow) {
+  font-size: 15px;
+  max-width: 560px;
+}
+.review-summary h3 {
+  font-size: 18px;
+}
+.review-summary p,
+.review-file p,
+.review-protection p,
+.review-verification p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.review-metrics span {
+  font-size: 12px;
+}
+.review-file h4,
+.review-file-explanation summary {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.review-verification h3,
+.review-protection h3,
+.review-actions h3 {
+  font-size: 17px;
+}
+.review-actions p,
+.decision-record p {
+  font-size: 13px;
+}
+.dialog-content {
+  border-radius: 16px;
+}
+.dialog-title {
+  font-size: 28px;
+  font-weight: 550;
+}
+.dialog-description,
+.decision-dialog .dialog-description {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.decision-file-list > .mono {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.guide-steps h3 {
+  font-size: 15px;
+}
+.guide-steps p,
+.demo-disclosure p {
+  font-size: 13px;
+}
+.command-search input {
+  font-size: 16px;
+}
+.command-result {
+  min-height: 46px;
+  font-size: 14px;
+}
+.command-footer,
+.command-results > .eyebrow {
+  font-size: 11px;
+}
+.toast {
+  font-size: 13px;
+}
+.empty-state h2 {
+  font-size: 28px;
+}
+.empty-state-description {
+  font-size: 15px;
+  max-width: 480px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-3px);
+    border-color: #8b83f65c;
+    box-shadow:
+      0 12px 25px #0003,
+      inset 0 1px 0 #ffffff0a;
+  }
+  .workflow-blueprint:hover .blueprint-connectors path {
+    animation: protection-path 1.8s linear infinite;
+    stroke: #b6a3ef;
+  }
+  .blueprint-node {
+    transition:
+      border-color 200ms,
+      box-shadow 200ms;
+  }
+  .workflow-blueprint:hover .sandbox-node {
+    border-color: #a58acb;
+    box-shadow: 0 6px 24px #100c2450;
+  }
+}
+@keyframes protection-path {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+@keyframes workspace-arrive {
+  from {
+    transform: translateY(5px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .feature-page {
+    animation: workspace-arrive 220ms var(--ease);
+  }
+}
+
+/* Adapt hierarchy instead of shrinking the new typography. */
+@media (max-height: 950px) and (min-width: 1024px) {
+  .app-sidebar .sidebar-note {
+    display: none;
+  }
+}
+@media (max-width: 1350px) and (min-width: 801px) {
+  .live-workspace .workspace-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .live-workspace .session-panel {
+    display: none;
+  }
+  .diagnosis-columns {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+}
+@media (max-width: 1023px) {
+  .page-heading h1 {
+    font-size: 36px;
+  }
+  .dashboard-hero .hero-copy {
+    padding: 28px;
+  }
+  .dashboard-hero .hero-copy h2 {
+    font-size: 38px;
+  }
+  .navigation-sheet {
+    width: 300px;
+  }
+}
+@media (max-width: 800px) {
+  .dashboard-hero {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-hero .workflow-blueprint {
+    display: none;
+  }
+  .diagnosis-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .diff-workbench {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .file-explorer {
+    border-right: 0;
+  }
+  .feature-heading {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --text-body: 14px;
+    --header-height: 64px;
+  }
+  .page-container {
+    padding: 28px 20px;
+  }
+  .page-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .page-heading h1 {
+    font-size: 32px;
+    max-width: 100%;
+    line-height: 1.2;
+  }
+  .page-description {
+    font-size: 14px;
+  }
+  .page-heading-actions {
+    padding: 0;
+  }
+  .workspace-heading h1 {
+    font-size: 28px;
+  }
+  .workspace-heading p {
+    font-size: 13px;
+  }
+  .feature-heading h2 {
+    font-size: 26px;
+  }
+  .feature-heading p {
+    font-size: 14px;
+  }
+  .feature-page {
+    padding: 24px 16px;
+  }
+  .feature-page p {
+    font-size: 14px;
+  }
+  .header-actions .badge {
+    font-size: 10px;
+  }
+  .breadcrumbs {
+    font-size: 13px;
+  }
+  .header-actions .button-icon {
+    width: 36px;
+    min-height: 40px;
+  }
+  .dashboard-hero .hero-copy {
+    padding: 28px 24px;
+  }
+  .dashboard-hero .hero-copy h2 {
+    font-size: 38px;
+  }
+  .dashboard-hero {
+    min-height: 0;
+  }
+  .hero-actions {
+    gap: 9px;
+  }
+  .overview-stat {
+    padding: 19px 16px;
+  }
+  .overview-stat > span {
+    font-size: 13px;
+  }
+  .overview-stat p {
+    font-size: 12px;
+  }
+  .project-card {
+    padding: 23px;
+  }
+  .repair-row {
+    padding: 20px 16px;
+  }
+  .repair-row h3 {
+    font-size: 15px;
+  }
+  .list-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+    font-size: 12px;
+  }
+  .search-field {
+    width: 100%;
+  }
+  .workflow-tab {
+    font-size: 13px;
+    padding-inline: 12px;
+    min-height: 42px;
+  }
+  .workflow-navigation {
+    min-height: 60px;
+  }
+  .workspace-demo-notice {
+    font-size: 11px;
+  }
+  .title-with-badge .badge {
+    font-size: 10px;
+  }
+  .subsection-title {
+    flex-wrap: wrap;
+  }
+  .subsection-title h3 {
+    font-size: 17px;
+  }
+  .preview-toolbar {
+    gap: 10px;
+  }
+  .segmented-control button {
+    font-size: 13px;
+  }
+  .viewport-controls {
+    margin-left: 0;
+  }
+  .viewport-controls button {
+    min-height: 40px;
+    padding: 10px;
+  }
+  .preview-toolbar-actions {
+    margin-left: auto;
+  }
+  .preview-toolbar-actions .button {
+    width: 40px;
+    min-height: 40px;
+  }
+  .preview-footer,
+  .browser-address > span {
+    font-size: 10px;
+  }
+  .test-name {
+    font-size: 15px;
+  }
+  .test-name small {
+    font-size: 13px;
+  }
+  .test-result-label,
+  .test-duration {
+    font-size: 11px;
+  }
+  .test-summary strong {
+    font-size: 32px;
+  }
+  .test-summary span {
+    font-size: 12px;
+  }
+  .review-intro h2 {
+    font-size: 29px;
+    max-width: none;
+  }
+  .review-intro > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+  .review-files .subsection-title h3 {
+    font-size: 16px;
+  }
+  .review-files .text-link {
+    font-size: 12px;
+  }
+  .review-file h4 {
+    font-size: 12px;
+  }
+  .review-protection h3 {
+    font-size: 16px;
+  }
+  .review-file p,
+  .review-summary p,
+  .review-protection p {
+    font-size: 14px;
+  }
+  .review-metrics span {
+    font-size: 12px;
+  }
+  .dialog-title {
+    font-size: 26px;
+  }
+  .dialog-actions .button {
+    min-height: 44px;
+  }
+  .dialog-content {
+    padding: 24px;
+  }
+  .dialog-sheet {
+    padding: 0;
+    border-radius: 0;
+  }
+  .command-dialog {
+    padding: 0;
+  }
+  .command-footer {
+    flex-wrap: wrap;
+    font-size: 11px;
+  }
+  .decision-file-list > .mono {
+    font-size: 11px;
+  }
+  .setting-row {
+    padding: 21px 16px;
+    align-items: flex-start;
+  }
+  .setting-row h3 {
+    font-size: 15px;
+  }
+  .setting-row p {
+    font-size: 13px;
+  }
+  .setting-row .switch {
+    margin-top: 5px;
+  }
+  .empty-state h2 {
+    font-size: 26px;
+  }
+  .empty-state-description {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .button:not(:disabled):not([aria-disabled='true']):hover,
+  .project-card:hover {
+    transform: none;
+  }
+}
+:root[data-reduce-motion='true'] :is(.button, .project-card):hover {
+  transform: none;
+}
