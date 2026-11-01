@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northstar Coffee</title>
+    <style>
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f4eee4; color: #29251f; font: 16px system-ui, sans-serif; }
+      main { width: min(480px, calc(100% - 32px)); padding: 24px; border-radius: 20px; background: #fffdf8; box-shadow: 0 24px 80px #503c2018; }
+      .eyebrow { color: #9c5c31; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      h1 { margin: 10px 0; font-family: Georgia, serif; font-size: clamp(28px, 9vw, 38px); }
+      p { color: #62594f; line-height: 1.6; }
+      button { margin-top: 12px; border: 0; border-radius: 999px; padding: 13px 20px; background: #254a38; color: white; font: inherit; cursor: pointer; }
+      #message { min-height: 24px; color: #254a38; font-weight: 650; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">Small batch · All heart</div>
+      <h1>Northstar Coffee</h1>
+      <p>Good coffee, warm company, and a little pause in your day.</p>
+      <button id="visit-button">Plan a visit</button>
+      <p id="message" aria-live="polite"></p>
+      <script src="app.js"></script>
+    </main>
+  </body>
+</html>

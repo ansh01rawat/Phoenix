@@ -29,3 +29,6 @@ test-results/
 .env
 .env.*
 !.env.example
+
+# Phoenix server data, imported source copies, and repair sandboxes
+.phoenix/
