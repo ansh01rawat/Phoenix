@@ -1,39 +1,34 @@
-# Project Phoenix
+﻿# Phoenix repair-loop starter
 
-Phoenix is an AI-powered agent that diagnoses and repairs a user's website source code. It works in an isolated sandbox, verifies proposed fixes, and applies them to the original project only after the user explicitly approves.
+A local prototype for the Phoenix AI repair loop. It copies a project into a per-run baseline and workspace, sends only selected text source files from the workspace to an OpenAI Agents SDK agent, applies the agent's structured file edits only in that workspace, and writes a diff and report for later review.
 
-## Workflow
+This is a prototype, not a hardened sandbox. It does not execute project code, run tests, preview the site, apply changes to the user's project, or deploy. The rulebook must still confirm the SDK, model, and source-data handling are permitted. The project text selected for analysis is sent to the configured OpenAI model.
 
-1. **Import** the website source from a GitHub repository or local project.
-2. **Create an isolated sandbox** based on the imported source and record its starting commit.
-3. **Diagnose** the issue from logs, errors, and the observed failure.
-4. **Plan and repair** the code inside the sandbox only.
-5. **Verify** the repair with automated tests and launch a preview when verification passes.
-6. **Review** the preview, test results, proposed changes, and a plain-language explanation.
-7. **Approve or reject:** approval applies the verified changes to the original project through a controlled Git commit or merge; rejection discards the sandbox changes.
+## Local setup
 
-## Safeguards
-
-- The original project is not modified during diagnosis, repair, or testing.
-- Failed tests prevent a repair from becoming ready for approval.
-- Phoenix never deploys changes to a live website automatically.
-- Repair actions and commits are recorded for auditing; approved changes can be rolled back.
-
-## Hackathon MVP
-
-Start with one reproducible website failure, a sandbox-only code repair, and a regression test that proves recovery. Then add the user preview and approval flow. Technology choices remain subject to the official hackathon rules.
-
-## Frontend
-
-The React, TypeScript and Vite frontend is in the repository root. It includes the repair workspace, preview and review journey, larger Geist typography, liquid-glass controls, responsive layouts and reduced-motion support.
+Use Python 3.10 or newer. From this folder:
 
 ```powershell
-npm ci
-npm run dev
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+$env:OPENAI_API_KEY = 'your-key'
+$env:OPENAI_MODEL = 'model-approved-for-your-team'
 ```
 
-Open http://127.0.0.1:5173/app. Run `npm run build`, `npm run lint` and `npm run test:e2e` for validation.
+Keep the API key in an environment variable. Never commit it or put it in the user project.
 
-This frontend currently uses clearly labeled sample services. Authentication, profile and workspace API integration are pending the backend push; no local replacement identity system was added. Backend service contracts and workflow boundaries were preserved during the visual enhancement.
+## Run
 
-See [Frontend guide](docs/frontend.md), [Visual enhancement report](docs/visual-enhancement.md), and [Design system](design.md).
+```powershell
+python repair_agent.py "C:\path\to\input-project" "Describe the bug and expected behavior"
+```
+
+Run data is stored under `.phoenix\runs\<run-id>\` in the current directory. It contains:
+
+- `baseline\` — copied reference snapshot
+- `workspace\` — the only copy this program writes to
+- `proposal.json` — diagnosis and explanation
+- `diff.patch` — changes between the baseline and workspace
+
+The input project is read only by this program. Review the diff and workspace manually. Do not treat this prototype as a strong operating-system sandbox; it does not run untrusted project code.
